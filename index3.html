@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cặp đôi dễ thương 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(120deg, rgba(255, 221, 225, 0.6), rgba(238, 156, 167, 0.6)),
+                url('image/download\ \(2\).jpg'); /* đường dẫn ảnh nền */
+    background-size: cover; /* phủ toàn bộ màn hình */
+    background-position: center; /* canh giữa ảnh */
+    background-attachment: fixed; /* cuộn vẫn giữ ảnh */
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+  
+  }
+  header {
+    padding: 40px 20px 10px;
+  }
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    margin: 0;
+  }
+  .anniversary {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .days {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  .avatars {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  footer {
+    margin-top: 40px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  /* Trái tim bay */
+  .heart {
+    position: fixed;
+    bottom: -20px;
+    color: #ff6f91;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tớ ❤️ Cậu</h1>
+  <!-- <div class="anniversary">Kỷ niệm từ: <span id="start-date">2023-08-15</span></div>
+  <div class="days">Chúng ta đã bên nhau <span id="days-count">0</span> ngày 💖</div> -->
+</header>
+
+<div class="avatars">
+  <div class="avatar" style="background-image: url('image/image1.jpg');"></div>
+  <div style="text-align: center; font-size: 100px;">💖</div>
+  <div class="avatar" style="background-image: url('image/image2.jpg');"></div>
+</div>
+
+<footer>💌 Mãi bên nhau bạn nhé 💌</footer>
+
+<script>
+  // Đếm ngày yêu nhau
+  const startDate = new Date("2023-08-15"); // Sửa ngày kỷ niệm ở đây
+  const today = new Date();
+  const diffTime = today - startDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("days-count").textContent = diffDays;
+
+  // Tạo trái tim bay
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    heart.textContent = "💖";
+    document.body.appendChild(heart);
+
+    setTimeout(() => { heart.remove(); }, 6000);
+  }
+  setInterval(createHeart, 300);
+    // Tạo trái tim bay ngay khi tải trang
+    createHeart();
+    window.addEventListener('load', () => {
+        createHeart();
+    });
+</script>
+
+</body>
+</html>
