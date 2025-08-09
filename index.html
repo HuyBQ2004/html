@@ -77,7 +77,7 @@
 <header>
   <h1>Tớ ❤️ Cậu</h1>
   <div class="anniversary"> <span id="start-date"></span></div>
-  <div class="days"><span id="days-count"></span> </div>
+  <!-- <div class="days"><span id="days-count"></span> </div> -->
 </header>
 
 <div class="avatars">
@@ -89,12 +89,15 @@
 <footer>💌 Mãi bên nhau bạn nhé 💌</footer>
 
 <script>
-  // Đếm ngày yêu nhau
-  const startDate = new Date("2023-08-15"); // Sửa ngày kỷ niệm ở đây
-  const today = new Date();
-  const diffTime = today - startDate;
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  document.getElementById("days-count").textContent = diffDays;
+  // Đếm ngày yêu nhau (chỉ khi tồn tại phần tử)
+  const daysCountEl = document.getElementById("days-count");
+  if (daysCountEl) {
+    const startDate = new Date("2023-08-15"); // Ngày kỷ niệm
+    const today = new Date();
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    daysCountEl.textContent = diffDays;
+  }
 
   // Tạo trái tim bay
   function createHeart() {
@@ -108,12 +111,10 @@
 
     setTimeout(() => { heart.remove(); }, 6000);
   }
+
+  // Tạo trái tim liên tục
   setInterval(createHeart, 300);
-    // Tạo trái tim bay ngay khi tải trang
-    createHeart();
-    window.addEventListener('load', () => {
-        createHeart();
-    });
+  window.addEventListener('load', createHeart);
 </script>
 
 </body>
